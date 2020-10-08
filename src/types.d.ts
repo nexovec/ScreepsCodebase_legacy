@@ -1,15 +1,11 @@
 // example declaration file - remove these and add your own custom typings
 
 // memory extension samples
-interface CreepMemory {
-  role: string;
-  room: string;
-  working: boolean;
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface CreepMemory {}
 
 interface Memory {
-  uuid: number;
-  log: any;
+  UUID: number;
 }
 
 // `global` extension samples

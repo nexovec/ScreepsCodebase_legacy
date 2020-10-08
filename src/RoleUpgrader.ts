@@ -5,6 +5,7 @@ export class RoleUpgrader {
     return;
   }
   public run(): void {
+    // TODO: check this again!
     const c = Game.creeps[this.creepName];
     const s = c.room.find(FIND_SOURCES)[0];
     const u = c.upgradeController(c.room.controller as StructureController);

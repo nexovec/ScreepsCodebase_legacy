@@ -1,6 +1,5 @@
 import { ErrorMapper } from "utils/ErrorMapper";
 import { RoleFactory } from "RoleFactory";
-import { uniqueId } from "lodash";
 import { UUID } from "UUID";
 
 // When compiling TS to JS and bundling with rollup, the line numbers and file names in error messages change
@@ -20,6 +19,7 @@ export const loop = ErrorMapper.wrapLoop(() => {
   if (Object.keys(Game.creeps).length < cap) {
     const name = "nex#" + new UUID().toString();
     if (Game.spawns.Spawn1.spawnCreep([WORK, CARRY, MOVE], name) === OK) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const n = "";
     }
   }

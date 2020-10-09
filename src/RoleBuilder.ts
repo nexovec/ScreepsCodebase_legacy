@@ -14,12 +14,12 @@ export class RoleBuilder {
         if (c.build(s[0]) === ERR_NOT_IN_RANGE) {
           c.moveTo(s[0]);
         }
-      } else {
+      } else if (Game.spawns.Spawn1.store.energy > 249) {
         const res = c.withdraw(Game.spawns.Spawn1, RESOURCE_ENERGY);
         if (res === ERR_NOT_IN_RANGE || res === ERR_NOT_ENOUGH_ENERGY) {
           c.moveTo(Game.spawns.Spawn1);
         }
-      }
+      } else new RoleHarvester(this.creepName).run();
     } else {
       new RoleHarvester(this.creepName).run();
     }

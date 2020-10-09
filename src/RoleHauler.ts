@@ -15,8 +15,10 @@ export class RoleHauler {
       }
     } else if (resources.length !== 0) {
       if (c.pickup(resources[0]) === ERR_NOT_IN_RANGE) c.moveTo(resources[0]);
-    } else {
-      if (c.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) c.moveTo(Game.spawns.Spawn1);
+      return;
+    } else if (c.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+      c.moveTo(Game.spawns.Spawn1);
+      return;
     }
     if (c.store.getFreeCapacity() === 0)
       if (c.transfer(Game.spawns.Spawn1, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) c.moveTo(Game.spawns.Spawn1);

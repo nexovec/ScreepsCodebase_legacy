@@ -1,4 +1,3 @@
-import { deprecate } from "util";
 import { RoleHarvester } from "./RoleHarvester";
 
 export class RoleBuilder {
@@ -7,7 +6,7 @@ export class RoleBuilder {
     this.creepName = creepName;
     return;
   }
-  public run() {
+  public run(): void {
     const c = Game.creeps[this.creepName];
     const s = c.room.find(FIND_CONSTRUCTION_SITES);
     if (s.length > 0) {

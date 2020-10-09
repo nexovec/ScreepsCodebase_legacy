@@ -5,7 +5,7 @@ export class RoleUpgrader {
     return;
   }
   public run(): void {
-    // TODO: check this again!
+    // TODO: you have uncommitted cosmetic changes to this class
     const c = Game.creeps[this.creepName];
     const s = c.room.find(FIND_SOURCES)[0];
     const u = c.upgradeController(c.room.controller as StructureController);
@@ -16,7 +16,8 @@ export class RoleUpgrader {
     } else if (u === ERR_NOT_IN_RANGE) {
       c.moveTo(c.room.controller as StructureController);
     } else if (u === OK) {
-      console.log("Just upgraded the controller!");
+      //   console.log("Just upgraded the controller!");
+      return;
     } else console.error("wtf did happen to my uprades?");
   }
 }

@@ -16,6 +16,6 @@ export class RoleUpgrader {
       c.moveTo(c.room.controller as StructureController);
     } else if (u === OK) {
       return;
-    } else console.error("wtf did happen to my uprades?");
+    } else return; // console.log("wtf did happen to my uprades?");
   }
 }

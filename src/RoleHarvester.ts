@@ -1,5 +1,5 @@
 export class RoleHarvester {
-  private creepName: string;
+  private creepName: string; // TODO: make a source wrapper that knows how much free space there is around a source
   public constructor(creepName: string) {
     this.creepName = creepName;
     return;

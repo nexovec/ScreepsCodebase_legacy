@@ -1,5 +1,6 @@
 import { RoleFactory } from "RoleFactory";
 import { UUID } from "UUID";
+import { WrapperSource } from "WrapperSource";
 
 export class BigBrother {
   private static instance: BigBrother;
@@ -25,6 +26,10 @@ export class BigBrother {
       const role = rf.getRole(name);
       role.run();
     }
+
+    // additional temporary stuff
+    new WrapperSource(Game.spawns.Spawn1.room.find(FIND_SOURCES)[0]);
+    new WrapperSource(Game.spawns.Spawn1.room.find(FIND_SOURCES)[1]);
     return;
   }
   public static getInstance(): BigBrother {

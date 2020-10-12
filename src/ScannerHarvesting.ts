@@ -3,6 +3,7 @@ export class ScannerHarvesting {
   public rooms: Room[];
   private wrappers: WrapperSource[];
   public freeSlots: number;
+  public totalSlots: number;
   public constructor(rooms: Room[]) {
     this.rooms = rooms;
     this.wrappers = [];
@@ -20,8 +21,21 @@ export class ScannerHarvesting {
     //       )
     //     ).toString()
     // );
-    this.freeSlots = this.wrappers.map(val => val.freeSlots).reduce((a, b) => a + b);
+    this.freeSlots = this.wrappers.map(val => val.freeSlots).reduce((a, b) => a + b); // FIXME: doesn't increment on creep death
+    this.totalSlots = this.freeSlots;
     return;
+  }
+  public register(): WrapperSource {
+    // TODO: prioritize lower distance from creep to source
+    for (const source of this.wrappers) {
+      if (source.freeSlots > 0) {
+        source.freeSlots -= 1;
+        this.freeSlots -= 1;
+        return source;
+      }
+    }
+    console.log("nope");
+    return this.wrappers[1];
   }
   public getSources(): Source[] {
     return this.rooms[0].find(FIND_SOURCES);

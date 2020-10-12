@@ -1,5 +1,5 @@
 export class WrapperSource {
-  private sourceObj: Source;
+  public sourceObj: Source;
   private spacesTotal: number;
   public freeSlots: number;
   public constructor(sourceObj: Source) {

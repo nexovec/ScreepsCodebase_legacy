@@ -19,9 +19,9 @@ export class RoleBuilder {
         if (res === ERR_NOT_IN_RANGE || res === ERR_NOT_ENOUGH_ENERGY) {
           c.moveTo(Game.spawns.Spawn1);
         }
-      } else new RoleHarvester(this.creepName).run();
+      } else return; // new RoleHarvester(this.creepName,).run();
     } else {
-      new RoleHarvester(this.creepName).run();
+      return; // new RoleHarvester(this.creepName).run();
     }
   }
 }

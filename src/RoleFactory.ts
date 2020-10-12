@@ -1,7 +1,7 @@
 import { RoleBuilder } from "./RoleBuilder";
 import { RoleHarvester } from "./RoleHarvester";
-import { RoleUpgrader } from "RoleUpgrader";
 import { RoleHauler } from "./RoleHauler";
+import { RoleUpgrader } from "RoleUpgrader";
 export class RoleFactory {
   public temp: number;
   public constructor() {

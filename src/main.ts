@@ -5,7 +5,7 @@ import { ErrorMapper } from "utils/ErrorMapper";
 // This utility uses source maps to get the line numbers and file names of the original, TS source code
 if (Game.cpu.getHeapStatistics) console.log(JSON.stringify(Game.cpu.getHeapStatistics()));
 
-BigBrother.getInstance().build();
+BigBrother.getInstance();
 export const loop = ErrorMapper.wrapLoop(() => {
   // Automatically delete memory of missing creeps
   for (const name in Memory.creeps) {

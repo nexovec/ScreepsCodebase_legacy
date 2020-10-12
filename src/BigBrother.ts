@@ -1,6 +1,7 @@
 import { RoleFactory } from "RoleFactory";
 import { UUID } from "UUID";
 import { WrapperSource } from "WrapperSource";
+import { ScannerHarvesting } from "./ScannerHarvesting";
 
 export class BigBrother {
   private static instance: BigBrother;
@@ -28,8 +29,7 @@ export class BigBrother {
     }
 
     // additional temporary stuff
-    new WrapperSource(Game.spawns.Spawn1.room.find(FIND_SOURCES)[0]);
-    new WrapperSource(Game.spawns.Spawn1.room.find(FIND_SOURCES)[1]);
+    new ScannerHarvesting([Game.spawns.Spawn1.room]);
     return;
   }
   public static getInstance(): BigBrother {

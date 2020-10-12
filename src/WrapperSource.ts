@@ -1,7 +1,7 @@
 export class WrapperSource {
   private sourceObj: Source;
   private spacesTotal: number;
-  private freeSlots: number;
+  public freeSlots: number;
   public constructor(sourceObj: Source) {
     this.sourceObj = sourceObj;
     // check for total free space around source

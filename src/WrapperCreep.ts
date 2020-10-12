@@ -1,7 +1,7 @@
 import { RoleFactory } from "./RoleFactory";
 import { RoleHarvester } from "./RoleHarvester";
 export class WrapperCreep {
-  private creepObj: Creep;
+  public creepObj: Creep;
   private role: RoleHarvester;
   public constructor(creepObj: Creep, rf: RoleFactory) {
     this.creepObj = creepObj;

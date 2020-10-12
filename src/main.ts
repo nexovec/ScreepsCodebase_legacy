@@ -8,11 +8,7 @@ if (Game.cpu.getHeapStatistics) console.log(JSON.stringify(Game.cpu.getHeapStati
 BigBrother.getInstance();
 export const loop = ErrorMapper.wrapLoop(() => {
   // Automatically delete memory of missing creeps
-  for (const name in Memory.creeps) {
-    if (!(name in Game.creeps)) {
-      delete Memory.creeps[name];
-    }
-  }
+
   BigBrother.getInstance().loop();
   if (Game.cpu.bucket >= 9900) Game.cpu.generatePixel();
 });

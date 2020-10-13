@@ -1,3 +1,4 @@
+import { values } from "lodash";
 import { RoleFactory } from "RoleFactory";
 import { UUID } from "UUID";
 import { WrapperCreep } from "WrapperCreep";
@@ -17,6 +18,7 @@ export class BigBrother {
     if (Object.keys(Game.creeps).length < cap) {
       const name = "nex#" + new UUID().toString();
       if (Game.spawns.Spawn1.spawnCreep([WORK, CARRY, MOVE], name) === OK) {
+        this.creeps.push(new WrapperCreep(Game.creeps[name], this.rf));
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const n = "";
       }
@@ -34,7 +36,10 @@ export class BigBrother {
   public creepDeletionHandler(): void {
     for (const name in Memory.creeps) {
       if (!(name in Game.creeps)) {
-        // TODO: unregister a creep
+        _.filter(this.creeps, val => !val.creepObj).forEach((val, key, arr) => {
+          val.unregister(); // TODO: remove creepWrapper
+        });
+        this.creeps = _.filter(this.creeps, val => val.creepObj !== undefined); // FIXME: very slow
         delete Memory.creeps[name];
       }
     }

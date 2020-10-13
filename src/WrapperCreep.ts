@@ -10,4 +10,8 @@ export class WrapperCreep {
   public run(): void {
     this.role.run();
   }
+  public unregister() {
+    this.role.unregister();
+    return;
+  }
 }

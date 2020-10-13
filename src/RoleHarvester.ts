@@ -21,4 +21,9 @@ export class RoleHarvester {
     }
     return;
   }
+  public unregister() {
+    this.currentSource.freeSlots += 1;
+    console.log("daed lol " + this.currentSource.freeSlots.toString());
+    return;
+  }
 }

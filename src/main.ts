@@ -13,21 +13,5 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
-  // Spawn creeps
-  const cap = 8;
-  const rf = new RoleFactory();
-  if (Object.keys(Game.creeps).length < cap) {
-    const name = "nex#" + new UUID().toString();
-    if (Game.spawns.Spawn1.spawnCreep([WORK, CARRY, MOVE], name) === OK) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const n = "";
-    }
-  }
-
-  // Make them work
-  for (const name in Game.creeps) {
-    const role = rf.getRole(name);
-    role.run();
-  }
   if (Game.cpu.bucket >= 9900) Game.cpu.generatePixel();
 });

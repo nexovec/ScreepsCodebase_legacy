@@ -7,14 +7,18 @@ export class Colony {
   public buildorder: BuildOrder;
   private taskmaster: TaskMaster;
   private hm: HarvestingManager;
+
   public constructor(room: Room) {
     this.rooms = [room];
     this.buildorder = new BuildOrder();
     this.taskmaster = new TaskMaster(this);
-    this.hm = new HarvestingManager();
+    this.hm = new HarvestingManager(this);
     return;
   }
   public loop() {
     this.taskmaster.loop();
+  }
+  public getRooms(): Room[] {
+    return this.rooms;
   }
 }

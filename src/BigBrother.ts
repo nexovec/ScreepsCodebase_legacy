@@ -1,9 +1,13 @@
+import { BuildOrder } from "BuildOrder";
+import { TaskMaster } from "TaskMaster";
+
 export class BigBrother {
   private static instance: BigBrother;
+  private buildorder: BuildOrder;
+  private taskmaster: TaskMaster;
   private constructor() {
-    return;
-  }
-  public build(): void {
+    this.buildorder = new BuildOrder();
+    this.taskmaster = new TaskMaster(this.buildorder.getSuperTasks());
     return;
   }
   public loop(): void {

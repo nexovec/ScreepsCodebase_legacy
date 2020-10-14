@@ -7,10 +7,11 @@ export class BigBrother {
   private taskmaster: TaskMaster;
   private constructor() {
     this.buildorder = new BuildOrder();
-    this.taskmaster = new TaskMaster(this.buildorder.getSuperTasks());
+    this.taskmaster = new TaskMaster(this.buildorder);
     return;
   }
   public loop(): void {
+    this.taskmaster.loop();
     return;
   }
   public static getInstance(): BigBrother {

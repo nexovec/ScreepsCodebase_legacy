@@ -6,6 +6,10 @@ interface CreepMemory {}
 
 interface Memory {
   UUID: number;
+  bigBrother: BigBrotherMemory;
+}
+interface BigBrotherMemory {
+  firstRoom: string;
 }
 
 // `global` extension samples

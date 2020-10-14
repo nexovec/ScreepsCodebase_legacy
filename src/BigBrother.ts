@@ -1,17 +1,19 @@
 import { BuildOrder } from "BuildOrder";
+import { Colony } from "Colony";
+import { values } from "lodash";
 import { TaskMaster } from "TaskMaster";
 
 export class BigBrother {
   private static instance: BigBrother;
-  private buildorder: BuildOrder;
-  private taskmaster: TaskMaster;
+  private colonies: Colony[];
   private constructor() {
-    this.buildorder = new BuildOrder();
-    this.taskmaster = new TaskMaster(this.buildorder);
+    if (!Memory.bigBrother) Memory.bigBrother = { firstRoom: Game.spawns.Spawn1.room.name };
+    this.colonies = [new Colony(Game.rooms[Memory.bigBrother.firstRoom])];
+
     return;
   }
   public loop(): void {
-    this.taskmaster.loop();
+    this.colonies.map(val => val.loop());
     return;
   }
   public static getInstance(): BigBrother {

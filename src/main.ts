@@ -1,3 +1,4 @@
+import { BigBrother } from "BigBrother";
 import { ErrorMapper } from "utils/ErrorMapper";
 import { UUID } from "UUID";
 
@@ -10,5 +11,6 @@ export const loop = ErrorMapper.wrapLoop(() => {
       delete Memory.creeps[name];
     }
   }
+  BigBrother.getInstance().loop();
   if (Game.cpu.bucket >= 9900) Game.cpu.generatePixel();
 });

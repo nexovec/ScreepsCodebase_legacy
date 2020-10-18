@@ -11,14 +11,13 @@ export class TaskHarvestingEnergy extends Task {
       {
         // commands
         0: () => {
-          this.workerTask.getCreep().harvest(colony.room.find(FIND_SOURCES)[0]); // TODO: get room from
+          this.workerTask.getCreep().harvest(colony.room.find(FIND_SOURCES)[0]); // TODO: get Source from HarvestingManager
           return true;
         }
       },
       {
         // predicates
         0: () => {
-          // if worker.finishedSpawning else return false
           if (this.workerTask.isComplete) return true;
           else return false;
         }

@@ -11,7 +11,6 @@ export class Task {
       throw new Error("Invalid task pipeline");
     this.isComplete = false;
   }
-  // FIXME: this.commands mustn't fail
   public resolve(): void {
     console.log(this.isComplete);
     if (this.isComplete) return;

@@ -8,7 +8,7 @@ export class TaskSpawnWorker extends Task {
       {
         // commands
         0: () => {
-          if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false; // FIXME: needs the super class to repeat the command
+          if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false;
           if (Game.creeps[this.creepName].spawning) return false;
           else return true;
         }

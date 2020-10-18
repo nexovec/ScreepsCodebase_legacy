@@ -2,13 +2,15 @@ import { Colony } from "Colony";
 import { Task } from "Task";
 import { UUID } from "UUID";
 export class TaskSpawnWorker extends Task {
+  private creepName: string;
   public constructor(colony: Colony) {
     super(
       {
         // commands
         0: () => {
-          const name = "nex#" + new UUID().toString();
-          Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), name);
+          if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false; // FIXME: needs the super class to repeat the command
+          if (Game.creeps[this.creepName].spawning) return false;
+          else return true;
         }
       },
       {
@@ -19,8 +21,13 @@ export class TaskSpawnWorker extends Task {
         }
       }
     );
+
+    this.creepName = "nex#" + new UUID().toString();
   }
   private getEnergy(): number {
     return Game.spawns.Spawn1.store.energy;
+  }
+  public getCreep() {
+    return Game.creeps[this.creepName];
   }
 }

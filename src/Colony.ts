@@ -1,7 +1,7 @@
 import { PopulationManager } from "PopulationManager";
 
 export class Colony {
-  private room: Room;
+  public room: Room;
   public popMan: PopulationManager;
   public constructor(room: Room) {
     this.room = room;

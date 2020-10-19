@@ -12,14 +12,13 @@ export class Task {
     this.isComplete = false;
   }
   public resolve(): void {
-    console.log(this.isComplete);
     if (this.isComplete) return;
     while (this.predicates[this.step]()) {
       // TODO: fix redundant calls to the predicates
       if (!this.commands[this.step]()) return;
       if (this.step === 0) {
         this.isComplete = true;
-        break;
+        return;
       } else this.step -= 1;
     }
   }

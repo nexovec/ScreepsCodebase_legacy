@@ -13,13 +13,13 @@ export class PopulationManager extends Manager {
     this.bodies = {
       worker: new BodyWorker(this.colony)
     };
-    this.task = this.getWorker();
+    this.task = new TaskSpawnWorker(this.colony);
     return;
   }
   public loop(): void {
-    if (this.task) this.task.resolve();
+    if (!this.task.isComplete) this.task.resolve();
   }
   public getWorker(): TaskSpawnWorker {
-    return new TaskSpawnWorker(this.colony);
+    return this.task as TaskSpawnWorker; // ugh, guttfillgetter
   }
 }

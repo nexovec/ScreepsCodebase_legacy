@@ -8,14 +8,20 @@ export class TaskSpawnWorker extends Task {
       {
         // commands
         0: () => {
-          if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false;
           if (Game.creeps[this.creepName].spawning) return false;
+          else return true;
+        },
+        1: () => {
+          if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false;
           else return true;
         }
       },
       {
         // predicates
         0: () => {
+          return true;
+        },
+        1: () => {
           if (this.getEnergy() < colony.popMan.bodies.worker.getBodyCost()) return false;
           else return true;
         }
@@ -27,7 +33,7 @@ export class TaskSpawnWorker extends Task {
   private getEnergy(): number {
     return Game.spawns.Spawn1.store.energy;
   }
-  public getCreep() {
+  public getCreep(): Creep {
     return Game.creeps[this.creepName];
   }
 }

@@ -7,6 +7,9 @@ interface CreepMemory {}
 interface Memory {
   UUID: number;
 }
+interface Creep {
+  isReserved: boolean;
+}
 
 // `global` extension samples
 declare namespace NodeJS {

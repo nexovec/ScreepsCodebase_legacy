@@ -1,6 +1,5 @@
 import { BodyWorker } from "./BodyWorker";
 import { TaskSpawnWorker } from "./TaskSpawnWorker";
-import { Task } from "./Task";
 export class Colony {
   private room: Room;
   private task: TaskSpawnWorker;

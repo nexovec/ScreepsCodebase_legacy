@@ -8,16 +8,17 @@ export class TaskSpawnWorker extends Task {
         // commands
         0: () => {
           const name = "nex#" + new UUID().toString();
-          Game.spawns.Spawn1.spawnCreep(colony.bodies.worker.getBody(), name);
+          Game.spawns.Spawn1.spawnCreep(this.colony.bodies.worker.getBody(), name);
         }
       },
       {
         // predicates
         0: () => {
-          if (this.getEnergy() < colony.bodies.worker.getBodyCost()) return false;
+          if (this.getEnergy() < this.colony.bodies.worker.getBodyCost()) return false;
           else return true;
         }
-      }
+      },
+      colony
     );
   }
   private getEnergy(): number {

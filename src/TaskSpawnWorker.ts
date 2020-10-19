@@ -8,8 +8,12 @@ export class TaskSpawnWorker extends Task {
       {
         // commands
         0: () => {
+          console.log("Spawning hasn't finished!");
           if (Game.creeps[this.creepName].spawning) return false;
-          else return true;
+          else {
+            console.log("Spawning has finished!");
+            return true;
+          }
         },
         1: () => {
           if (Game.spawns.Spawn1.spawnCreep(colony.popMan.bodies.worker.getBody(), this.creepName) !== OK) return false;
@@ -29,6 +33,10 @@ export class TaskSpawnWorker extends Task {
     );
 
     this.creepName = "nex#" + new UUID().toString();
+  }
+  public resolve(): void {
+    console.log("NANI the fuck?!", this.isComplete);
+    super.resolve();
   }
   private getEnergy(): number {
     return Game.spawns.Spawn1.store.energy;

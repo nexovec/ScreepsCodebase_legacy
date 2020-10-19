@@ -17,9 +17,11 @@ export class PopulationManager extends Manager {
     return;
   }
   public loop(): void {
-    if (!this.task.isComplete) this.task.resolve();
+    // if (!this.task.isComplete) {
+    this.task.resolve();
+    // }
   }
   public getWorker(): TaskSpawnWorker {
-    return this.task as TaskSpawnWorker; // ugh, guttfillgetter
+    return this.task as TaskSpawnWorker; // ugh...
   }
 }

@@ -3,7 +3,7 @@ export class Task {
   protected commands: { [index: number]: () => any };
   protected step: number;
   public isComplete: boolean;
-  public constructor(commands: { [index: number]: () => any }, predicates: { [index: number]: () => boolean }) {
+  public constructor(commands: { [index: number]: () => boolean }, predicates: { [index: number]: () => boolean }) {
     this.commands = commands;
     this.predicates = predicates;
     this.step = Object.keys(this.predicates).length - 1;
@@ -12,14 +12,18 @@ export class Task {
     this.isComplete = false;
   }
   public resolve(): void {
+    console.log("It is complete", this.step, this.isComplete);
     if (this.isComplete) return;
     while (this.predicates[this.step]()) {
-      // TODO: fix redundant calls to the predicates
       if (!this.commands[this.step]()) return;
+      console.log("predicate is complete", this.step);
       if (this.step === 0) {
+        console.log("setting this.isComplete=true", this.step);
         this.isComplete = true;
-        return;
-      } else this.step -= 1;
+        break;
+      } else {
+        this.step -= 1;
+      }
     }
   }
 }

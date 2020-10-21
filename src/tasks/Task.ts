@@ -12,6 +12,7 @@ export class Task {
     this.colony = colony;
   }
   public resolve(): void {
+    // TODO: add a task queue, sort by dependencies at the end of the tick
     if (this.isComplete) return;
     const res: boolean = this.commands[this.step]();
     while (res) {

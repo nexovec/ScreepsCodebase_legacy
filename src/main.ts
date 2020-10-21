@@ -8,7 +8,7 @@ import "enhancedprototypes";
 console.log("!!!reset!!!");
 export const loop = ErrorMapper.wrapLoop(() => {
   // Automatically delete memory of missing creeps
-  if (Game.cpu.bucket !== 1000) console.log(Game.cpu.bucket);
+  if (Game.cpu.bucket !== 10000) console.log(Game.cpu.bucket);
   for (const name in Memory.creeps) {
     if (!(name in Game.creeps)) {
       delete Memory.creeps[name];

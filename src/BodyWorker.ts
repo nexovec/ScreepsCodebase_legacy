@@ -14,4 +14,8 @@ export class BodyWorker {
   public getBodyCost(): number {
     return this.bodyCost;
   }
+  public static suffices(body: { type: string }[]): boolean {
+    // because it's the only bodytype LOL
+    return true;
+  }
 }

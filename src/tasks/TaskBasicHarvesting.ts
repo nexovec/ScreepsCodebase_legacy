@@ -46,4 +46,9 @@ export class TaskBasicHarvesting extends Task {
   public getCreep(): Creep {
     return this.spawnTask.getCreep();
   }
+  public giveCreep(creep: string): TaskBasicHarvesting {
+    this.spawnTask.isComplete = true;
+    this.spawnTask.name = creep;
+    return this;
+  }
 }

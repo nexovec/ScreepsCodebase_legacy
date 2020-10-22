@@ -10,6 +10,10 @@ interface Memory {
 interface Creep {
   isReserved: boolean;
 }
+interface Source {
+  freeSpaces: number;
+  totalSpaces: number;
+}
 
 // `global` extension samples
 declare namespace NodeJS {

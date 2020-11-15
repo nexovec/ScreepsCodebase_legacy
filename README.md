@@ -1,4 +1,4 @@
-# Screeps Typescript Starter
+# This is the first few bunch of unsuccessful rewrites. Doesn't work! I keep this for legacy reasons.
 
 Screeps Typescript Starter is a starting point for a Screeps AI written in Typescript. It provides everything you need to start writing your AI whilst leaving `main.ts` as empty as possible.
 
